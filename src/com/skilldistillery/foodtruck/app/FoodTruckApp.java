@@ -45,6 +45,7 @@ public class FoodTruckApp {
 			String name = foodTruckName(sc, ftApp, foodTruckArr);
 			if (name.equalsIgnoreCase("quit")) {
 				isRunning = false;
+				ftApp.menu(sc, ftApp, foodTruckArr);
 				break;
 			}
 			String foodType = ftApp.foodTruckType(sc, ftApp, foodTruckArr);
@@ -52,5 +53,52 @@ public class FoodTruckApp {
 			foodTruckArr[i] = new FoodTruck(i, name, foodType, rating);
 			i++;
 		}
+		
 	}
+	public void menu(Scanner input, FoodTruckApp ftApp, FoodTruck[] foodTruckArr) {
+		boolean menu = true;
+		while (menu) {
+			System.out.println("------------------------------");
+			System.out.println("1. List available food trucks");
+			System.out.println("2. See average rating");
+			System.out.println("3. See the highest-rated truck");
+			System.out.println("4. QUIT");
+			System.out.println("------------------------------");
+			int choice = input.nextInt();
+			switch (choice) {
+			case 1:
+				ftApp.listFoodTrucks(foodTruckArr);
+				break;
+			case 2:
+//				ftApp.averageRating(foodTruckArr);
+				break;
+			case 3:
+//				ftApp.highestRated(foodTruckArr);
+				break;
+			case 4:
+				System.out.println("Goodbye!");
+				menu = false;
+				System.exit(0);
+				break;
+			}
+		}
+	}
+
+//	User Story #3 List all existing food trucks.
+	public void listFoodTrucks(FoodTruck[] foodTruckArr) {
+		for (int i = 0; i < foodTruckArr.length; i++) {
+			if (foodTruckArr[i] == null) {
+				continue;
+			}
+			System.out.println("------------------------");
+			System.out.println(foodTruckArr[i].toString());
+			System.out.println("------------------------");
+		}
+	}
+//	User Story #3 See the average rating of food trucks.
+	
+//	User Story #3 Display the highest-rated food truck.
+
+	
+
 }
