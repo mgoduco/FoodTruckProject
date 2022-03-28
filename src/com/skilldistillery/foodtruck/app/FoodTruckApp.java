@@ -31,7 +31,7 @@ public class FoodTruckApp {
 			rating = sc.nextDouble();
 			sc.nextLine();
 			if (rating < 1 || rating > 10) {
-				System.out.println("Rating must be between 1 and 5");
+				System.out.println("Rating must be between 1 and 10");
 			} else if (rating >=1 && rating <=10) {
 				isRunning = false;
 				break;
